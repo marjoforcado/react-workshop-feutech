@@ -1,0 +1,13 @@
+.checklist {
+  @apply h-14 border border-gray-200 w-full max-w-xl gap-5 flex items-center px-5 rounded;
+
+  &--is-done {
+    & > svg {
+      @apply visible;
+    }
+  }
+
+  &__svg {
+    @apply h-5 w-5 fill-black invisible flex-none;
+  }
+}

@@ -1,5 +1,5 @@
 .text {
-  @apply text-base;
+  @apply whitespace-nowrap text-ellipsis overflow-hidden;
 }
 
 .size--base {
