@@ -1,3 +1,11 @@
 .text {
   @apply text-base;
 }
+
+.size--base {
+  @apply text-base;
+}
+
+.size--4xl {
+  @apply text-4xl;
+}

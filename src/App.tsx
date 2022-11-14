@@ -1,10 +1,13 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.scss";
-import { Button } from "./components";
+import { Button, Navbar } from "./components";
 
 function App() {
-  return <Button />;
+  return (
+    <>
+      <Navbar />
+      <Button>click me</Button>
+    </>
+  );
 }
 
 export default App;
