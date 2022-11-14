@@ -1,10 +1,25 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.scss";
-import { Button } from "./components";
+import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
+import { Navbar } from "./components";
+import { IndexPage, ViewPage } from "./pages";
 
 function App() {
-  return <Button />;
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <IndexPage />,
+    },
+    {
+      path: "view",
+      element: <ViewPage />,
+    },
+  ]);
+
+  return (
+    <>
+      <Navbar />
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;

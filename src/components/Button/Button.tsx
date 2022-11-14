@@ -1,5 +1,11 @@
 import styles from "./styles.module.scss";
 
-const Button = () => <button className={styles["btn"]}>Click me</button>;
+type PropsType = { children: string };
+
+const Button = (props: PropsType) => {
+  const { children } = props;
+
+  return <button className={styles["btn"]}>{children}</button>;
+};
 
 export default Button;

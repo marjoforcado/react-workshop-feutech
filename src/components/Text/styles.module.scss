@@ -1,0 +1,19 @@
+.text {
+  @apply whitespace-nowrap text-ellipsis overflow-hidden;
+}
+
+.size--base {
+  @apply text-base;
+}
+
+.size--4xl {
+  @apply text-4xl;
+}
+
+.weight--regular {
+  @apply font-normal;
+}
+
+.weight--semibold {
+  @apply font-semibold;
+}
