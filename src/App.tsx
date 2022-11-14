@@ -1,25 +1,16 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import { Navbar } from "./components";
+import { IndexPage, ViewPage } from "./pages";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <div>
-          <h1>Hello World</h1>
-          <Link to="about">About Us</Link>
-        </div>
-      ),
+      element: <IndexPage />,
     },
     {
-      path: "about",
-      element: <div>About</div>,
+      path: "view",
+      element: <ViewPage />,
     },
   ]);
 
