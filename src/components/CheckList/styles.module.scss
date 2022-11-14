@@ -1,5 +1,6 @@
 .checklist {
-  @apply h-14 border border-gray-200 bg-white w-full max-w-xl gap-5 flex items-center px-5 rounded;
+  @apply h-14 border border-gray-300 bg-white w-full max-w-xl gap-5 flex items-center px-5 rounded;
+  @apply hover:bg-gray-200;
 
   &--is-done {
     @apply border-2 border-green-500;
