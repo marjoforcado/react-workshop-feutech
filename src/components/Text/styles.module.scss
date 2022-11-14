@@ -9,3 +9,11 @@
 .size--4xl {
   @apply text-4xl;
 }
+
+.weight--regular {
+  @apply font-normal;
+}
+
+.weight--semibold {
+  @apply font-semibold;
+}
