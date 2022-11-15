@@ -1,10 +1,12 @@
 .checklist {
-  @apply h-14 border border-gray-300 bg-white w-full max-w-xl gap-5 flex items-center px-5 rounded;
+  @apply h-14 border border-gray-300 bg-white w-full rounded cursor-pointer flex items-center;
   @apply hover:bg-gray-200;
 
   &--is-done {
     @apply border-2 border-green-500;
+  }
 
+  &--is-done > &__content {
     & > svg {
       @apply visible;
     }
@@ -16,5 +18,17 @@
 
   &__svg {
     @apply h-5 w-5 fill-green-500 invisible flex-none;
+  }
+
+  &__content {
+    @apply gap-5 px-5 flex items-center w-full h-full;
+
+    & > p {
+      @apply w-80;
+    }
+  }
+
+  &__btn {
+    @apply w-20 h-full flex-none bg-green-200 border-l-2 border-green-500;
   }
 }
