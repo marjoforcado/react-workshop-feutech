@@ -4,12 +4,18 @@ import classNames from "classnames";
 import Text from "../Text";
 import styles from "./styles.module.scss";
 
+type Todo = {
+  id: number;
+  todo: string;
+};
+
 type PropsType = {
-  children: string;
+  todo: Todo;
+  onView: (todo: Todo) => void;
 };
 
 const CheckList = (props: PropsType) => {
-  const { children } = props;
+  const { todo, onView } = props;
   const [isDone, setIsDone] = useState(false);
 
   return (
@@ -33,9 +39,11 @@ const CheckList = (props: PropsType) => {
             clipRule="evenodd"
           />
         </svg>
-        <Text>{children}</Text>
+        <Text>{todo.todo}</Text>
       </div>
-      <button className={styles["checklist__btn"]}>View</button>
+      <button className={styles["checklist__btn"]} onClick={() => onView(todo)}>
+        View
+      </button>
     </div>
   );
 };
