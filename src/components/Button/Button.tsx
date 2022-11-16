@@ -1,11 +1,15 @@
 import styles from "./styles.module.scss";
 
-type PropsType = { children: string };
+type PropsType = { children: string; onClick?: () => void };
 
 const Button = (props: PropsType) => {
-  const { children } = props;
+  const { children, onClick = () => {} } = props;
 
-  return <button className={styles["btn"]}>{children}</button>;
+  return (
+    <button className={styles["btn"]} onClick={onClick}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
