@@ -21,7 +21,7 @@ const IndexPage = () => (
         </div>
       </div>
     </div>
-    <Modal />
+    {/* <Modal /> */}
   </>
 );
 
