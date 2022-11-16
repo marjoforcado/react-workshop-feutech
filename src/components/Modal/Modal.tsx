@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import Button from "../Button";
 import styles from "./styles.module.scss";
 import Input from "../Input";
+import Text from "../Text";
 
 type Todo = {
   id: number;
@@ -15,12 +16,21 @@ type PropsType = {
   todo?: Todo | null;
   onClose: () => void;
   onDelete: (id: number) => void;
+  onSave: (id: number, todo: string) => void;
 };
 
 const Modal = (props: PropsType) => {
-  const { isToggled, todo, onClose, onDelete } = props;
-
+  const { isToggled, todo, onClose, onDelete, onSave } = props;
   const [isEditing, setIsEditing] = useState(false);
+  const [form, setForm] = useState<{ todo: string | "" }>({
+    todo: "",
+  });
+
+  useEffect(() => {
+    setForm({
+      todo: todo?.todo || "",
+    });
+  }, [todo]);
 
   if (todo) {
     return (
@@ -48,31 +58,39 @@ const Modal = (props: PropsType) => {
               className={styles["modal__form"]}
             >
               <div className={classNames(styles["modal__body"])}>
-                <Input className={styles["modal__input"]} />
+                <Text>Current value: {todo.todo}</Text>
+                <Input
+                  name="todo"
+                  className={styles["modal__input"]}
+                  onChange={(e) =>
+                    setForm((prev) => ({
+                      ...prev,
+                      [e.target.name]: e.target.value,
+                    }))
+                  }
+                />
               </div>
               <div className={styles["modal__footer--is-editing"]}>
-                <Button onClick={() => setIsEditing((prev) => false)}>
-                  Cancel
+                <Button onClick={() => setIsEditing(false)}>Cancel</Button>
+                <Button
+                  onClick={() => {
+                    onSave(todo.id, form.todo);
+                    setIsEditing(false);
+                  }}
+                >
+                  Save
                 </Button>
-                <Button>Save</Button>
               </div>
             </form>
           ) : (
             <>
               <div className={classNames(styles["modal__body"])}>
-                <div>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                  reprehenderit voluptatibus sed aut odio earum, dolore fugit,
-                  omnis velit necessitatibus sequi porro, deserunt sapiente.
-                  Esse, eaque! Eveniet impedit eius iure!
-                </div>
+                {todo.todo}
               </div>
               <div className={styles["modal__footer"]}>
                 <Button onClick={() => onDelete(todo.id)}>Delete</Button>
                 <div className={styles["modal__btn-group"]}>
-                  <Button onClick={() => setIsEditing((prev) => true)}>
-                    Edit
-                  </Button>
+                  <Button onClick={() => setIsEditing(true)}>Edit</Button>
                   <Button onClick={() => onClose()}>Close</Button>
                 </div>
               </div>

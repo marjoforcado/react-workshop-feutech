@@ -6,6 +6,7 @@ type PropsType = {
   className?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   name?: string;
+  value?: any;
 };
 
 const Input = (props: PropsType) => {

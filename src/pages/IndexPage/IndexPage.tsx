@@ -76,9 +76,35 @@ const IndexPage = () => {
             todo: null,
           }));
         }}
-        onDelete={(id) =>
-          setTodoList((prev) => [...prev.filter((o) => o.id !== id)])
-        }
+        onDelete={(id) => {
+          setTodoList((prev) => [...prev.filter((o) => o.id !== id)]);
+
+          setModalProps((prev) => ({
+            ...prev,
+            isToggled: false,
+            todo: null,
+          }));
+        }}
+        onSave={(id, todo) => {
+          setTodoList((prev) =>
+            prev.map((o) => {
+              if (id === o.id) {
+                return {
+                  id,
+                  todo,
+                };
+              }
+
+              return o;
+            })
+          );
+
+          setModalProps((prev) => ({
+            ...prev,
+            isToggled: false,
+            todo: null,
+          }));
+        }}
       />
     </>
   );
