@@ -14,6 +14,13 @@ const IndexPage = () => {
   const [form, setForm] = useState({
     todo: "",
   });
+  const [modalProps, setModalProps] = useState<{
+    isToggled: boolean;
+    todo: Todo | null;
+  }>({
+    isToggled: false,
+    todo: null,
+  });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,12 +52,34 @@ const IndexPage = () => {
           </form>
           <div className={styles["page__lists"]}>
             {todoList.map((item) => (
-              <CheckList key={item.id}>{item.todo}</CheckList>
+              <CheckList
+                key={item.id}
+                todo={item}
+                onView={(todo) =>
+                  setModalProps((prev) => ({
+                    ...prev,
+                    todo,
+                  }))
+                }
+              />
             ))}
           </div>
         </div>
       </div>
-      {/* <Modal /> */}
+      <Modal
+        isToggled={modalProps.isToggled}
+        todo={modalProps.todo}
+        onClose={() => {
+          setModalProps((prev) => ({
+            ...prev,
+            isToggled: false,
+            todo: null,
+          }));
+        }}
+        onDelete={(id) =>
+          setTodoList((prev) => [...prev.filter((o) => o.id !== id)])
+        }
+      />
     </>
   );
 };
