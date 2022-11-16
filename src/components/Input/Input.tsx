@@ -1,5 +1,7 @@
 import styles from "./styles.module.scss";
 
-const Input = () => <input className={styles["input"]} />;
+const Input = () => (
+  <input placeholder="What to do?" className={styles["input"]} />
+);
 
 export default Input;

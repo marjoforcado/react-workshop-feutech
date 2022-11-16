@@ -26,6 +26,7 @@ const Modal = () => (
         facilis fuga incidunt ipsa quidem, labore rem nobis ipsum. Aut, facilis.
       </div>
       <div className={styles["modal__footer"]}>
+        <Button>Edit</Button>
         <Button>Close</Button>
       </div>
     </div>

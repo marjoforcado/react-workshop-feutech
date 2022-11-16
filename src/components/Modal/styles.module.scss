@@ -7,6 +7,6 @@
 
   &__footer,
   &__header {
-    @apply flex justify-end;
+    @apply flex justify-end space-x-3;
   }
 }
