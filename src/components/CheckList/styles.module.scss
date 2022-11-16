@@ -3,7 +3,7 @@
   @apply hover:bg-gray-200;
 
   &--is-done {
-    @apply border-2 border-green-500;
+    @apply border-2 border-gray-500;
   }
 
   &--is-done > &__content {
@@ -12,12 +12,12 @@
     }
 
     & > p {
-      @apply text-green-500 line-through decoration-2;
+      @apply text-gray-500 line-through decoration-2;
     }
   }
 
   &__svg {
-    @apply h-5 w-5 fill-green-500 invisible flex-none;
+    @apply h-5 w-5 fill-gray-500 invisible flex-none;
   }
 
   &__content {
@@ -29,6 +29,6 @@
   }
 
   &__btn {
-    @apply w-20 h-full flex-none bg-green-200 border-l-2 border-green-500;
+    @apply w-20 h-full flex-none bg-gray-200 border-l-2 border-gray-500;
   }
 }

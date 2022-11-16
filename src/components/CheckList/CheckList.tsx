@@ -37,7 +37,7 @@ const CheckList = () => {
           voluptate pariatur minima.
         </Text>
       </div>
-      <button className={styles["checklist__btn"]}>Edit</button>
+      <button className={styles["checklist__btn"]}>View</button>
     </div>
   );
 };
