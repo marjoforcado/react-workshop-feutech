@@ -4,7 +4,12 @@ import classNames from "classnames";
 import Text from "../Text";
 import styles from "./styles.module.scss";
 
-const CheckList = () => {
+type PropsType = {
+  children: string;
+};
+
+const CheckList = (props: PropsType) => {
+  const { children } = props;
   const [isDone, setIsDone] = useState(false);
 
   return (
@@ -28,14 +33,7 @@ const CheckList = () => {
             clipRule="evenodd"
           />
         </svg>
-        <Text>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda
-          explicabo quaerat fuga iure facilis eligendi quo. Incidunt quos et
-          quia dolor labore numquam iusto saepe velit? Tempora, itaque
-          voluptatem, aliquid ratione dolorem consectetur at modi totam ipsa a,
-          magnam natus quam? Commodi eum autem reiciendis possimus ipsam
-          voluptate pariatur minima.
-        </Text>
+        <Text>{children}</Text>
       </div>
       <button className={styles["checklist__btn"]}>View</button>
     </div>
